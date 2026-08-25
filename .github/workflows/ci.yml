@@ -1,0 +1,29 @@
+name: Entrega 2 - Testes Automatizados
+
+on:
+  push:
+    paths:
+      - "entrega-2-intermediaria/**"
+      - ".github/workflows/ci.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "entrega-2-intermediaria/**"
+      - ".github/workflows/ci.yml"
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Executar test harness
+        working-directory: entrega-2-intermediaria
+        run: npm test

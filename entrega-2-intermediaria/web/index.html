@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DividimOS Lite</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">Bootcamp III</p>
+      <h1>DividimOS Lite</h1>
+      <p>Controle simples de despesas compartilhadas entre duas pessoas.</p>
+    </header>
+
+    <section class="card">
+      <h2>Participantes</h2>
+      <div class="grid">
+        <label>
+          Pessoa A
+          <input id="personA" value="Pessoa A" maxlength="40">
+        </label>
+        <label>
+          Pessoa B
+          <input id="personB" value="Pessoa B" maxlength="40">
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Nova despesa</h2>
+      <form id="expenseForm">
+        <div class="grid">
+          <label>
+            Descrição
+            <input id="description" required maxlength="80" placeholder="Ex.: Mercado">
+          </label>
+          <label>
+            Valor (R$)
+            <input id="amount" required inputmode="decimal" placeholder="120,50">
+          </label>
+          <label>
+            Quem pagou
+            <select id="payer"></select>
+          </label>
+        </div>
+        <button type="submit">Adicionar despesa</button>
+      </form>
+      <p id="message" role="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>Resumo</h2>
+      <div id="summary" class="summary"></div>
+      <ul id="expenses"></ul>
+      <button id="clearBtn" class="secondary" type="button">Limpar dados</button>
+    </section>
+  </main>
+
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>
