@@ -10,6 +10,10 @@ export function parseAmount(value) {
 }
 
 export function splitExpense(amount, participantCount) {
+  if (!Number.isInteger(participantCount) || participantCount <= 0) {
+    throw new RangeError("A quantidade de participantes deve ser um inteiro maior que zero.");
+  }
+
   const cents = Math.round(parseAmount(amount) * 100);
   const base = Math.floor(cents / participantCount);
   const remainder = cents % participantCount;
