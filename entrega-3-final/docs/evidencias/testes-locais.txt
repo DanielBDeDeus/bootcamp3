@@ -1,0 +1,71 @@
+﻿TAP version 13
+# Subtest: auditoria adiciona timestamp e tipo
+ok 1 - auditoria adiciona timestamp e tipo
+  ---
+  duration_ms: 2.9893
+  type: 'test'
+  ...
+# Subtest: auditoria rejeita evento sem tipo
+ok 2 - auditoria rejeita evento sem tipo
+  ---
+  duration_ms: 0.5641
+  type: 'test'
+  ...
+# Subtest: exportacao inclui schema, participantes e despesas
+ok 3 - exportacao inclui schema, participantes e despesas
+  ---
+  duration_ms: 5.6379
+  type: 'test'
+  ...
+# Subtest: exportacao rejeita estado invalido
+ok 4 - exportacao rejeita estado invalido
+  ---
+  duration_ms: 1.4632
+  type: 'test'
+  ...
+# Subtest: parseAmount aceita virgula
+ok 5 - parseAmount aceita virgula
+  ---
+  duration_ms: 1.1705
+  type: 'test'
+  ...
+# Subtest: splitExpense preserva centavos
+ok 6 - splitExpense preserva centavos
+  ---
+  duration_ms: 0.9682
+  type: 'test'
+  ...
+# Subtest: splitExpense rejeita zero
+ok 7 - splitExpense rejeita zero
+  ---
+  duration_ms: 0.486
+  type: 'test'
+  ...
+# Subtest: calculateBalances calcula saldo correto
+ok 8 - calculateBalances calcula saldo correto
+  ---
+  duration_ms: 1.1566
+  type: 'test'
+  ...
+# Subtest: calculateBalances rejeita duplicados
+ok 9 - calculateBalances rejeita duplicados
+  ---
+  duration_ms: 0.3132
+  type: 'test'
+  ...
+# Subtest: buildSettlement gera transferencia
+ok 10 - buildSettlement gera transferencia
+  ---
+  duration_ms: 0.2806
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 168.0409
+

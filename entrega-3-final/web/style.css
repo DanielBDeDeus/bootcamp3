@@ -1,0 +1,39 @@
+﻿:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #18131f;
+  background: #f3f1f6;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(880px, calc(100% - 32px)); margin: 36px auto; }
+header { margin-bottom: 22px; }
+h1 { margin: 4px 0; font-size: clamp(2rem, 7vw, 4rem); }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-weight: 800; }
+.card {
+  background: white;
+  border: 1px solid #ddd7e6;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 14px 0;
+  box-shadow: 0 10px 24px rgba(50, 30, 70, .06);
+}
+form { display: grid; gap: 12px; }
+label { display: grid; gap: 6px; font-weight: 700; }
+input, select, button {
+  font: inherit;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #bdb5c8;
+}
+button {
+  border: 0;
+  background: #55206f;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+button.danger { background: #8c2430; }
+li { margin: 8px 0; }
+li button { padding: 5px 8px; font-size: .85rem; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0; }

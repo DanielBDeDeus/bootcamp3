@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DividimOS Lite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Bootcamp III</p>
+      <h1>DividimOS Lite</h1>
+      <p>Rateio simples de despesas entre duas pessoas.</p>
+    </header>
+
+    <section class="card">
+      <h2>Participantes</h2>
+      <form id="peopleForm">
+        <label>Pessoa A <input id="personA" required></label>
+        <label>Pessoa B <input id="personB" required></label>
+        <button>Salvar participantes</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Nova despesa</h2>
+      <form id="expenseForm">
+        <label>Descricao <input id="description" required></label>
+        <label>Valor <input id="amount" inputmode="decimal" required></label>
+        <label>Pagador
+          <select id="payer">
+            <option value="A">Pessoa A</option>
+            <option value="B">Pessoa B</option>
+          </select>
+        </label>
+        <button>Adicionar</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Despesas</h2>
+      <ul id="expenses"></ul>
+    </section>
+
+    <section class="card" id="result"></section>
+
+    <section class="actions">
+      <button id="exportButton">Exportar JSON</button>
+      <button id="resetButton" class="danger">Limpar dados</button>
+    </section>
+  </main>
+
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
