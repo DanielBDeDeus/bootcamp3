@@ -1,4 +1,5 @@
 import { calculateBalances, parseAmount } from "./finance.mjs";
+import { makeExportPayload } from "./export.mjs";
 
 const STORAGE_KEY = "bootcamp3-dividimos-lite";
 
@@ -12,7 +13,8 @@ const els = {
   summary: document.querySelector("#summary"),
   expenses: document.querySelector("#expenses"),
   message: document.querySelector("#message"),
-  clearBtn: document.querySelector("#clearBtn")
+  clearBtn: document.querySelector("#clearBtn"),
+  exportBtn: document.querySelector("#exportBtn")
 };
 
 const defaultState = {
@@ -77,14 +79,14 @@ function render() {
       ? `tem a receber R$ ${value.toFixed(2)}`
       : value < 0
         ? `deve R$ ${Math.abs(value).toFixed(2)}`
-        : "está quitado";
+        : "estÃ¡ quitado";
 
     return `<div class="balance"><strong>${escapeHtml(person)}</strong>: ${text}</div>`;
   }).join("");
 
   els.expenses.innerHTML = state.expenses.length
     ? state.expenses.map(expense =>
-        `<li>${escapeHtml(expense.description)} — R$ ${expense.amount.toFixed(2)} — pago por ${escapeHtml(expense.payer)}</li>`
+        `<li>${escapeHtml(expense.description)} â€” R$ ${expense.amount.toFixed(2)} â€” pago por ${escapeHtml(expense.payer)}</li>`
       ).join("")
     : "<li>Nenhuma despesa cadastrada.</li>";
 }
@@ -114,6 +116,18 @@ els.form.addEventListener("submit", event => {
   catch (error) {
     els.message.textContent = error.message;
   }
+});
+
+els.exportBtn.addEventListener("click", () => {
+  const blob = new Blob([makeExportPayload(state)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "dividimos-dados.json";
+  link.click();
+
+  URL.revokeObjectURL(url);
 });
 
 els.clearBtn.addEventListener("click", () => {
