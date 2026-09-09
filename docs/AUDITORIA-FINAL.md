@@ -34,8 +34,7 @@ evidencias historicas das entregas. Relatorios sao locais para submissao.
 ## Limites de evidencia
 
 ProcyonOps pertence ao mesmo autor e nao e revisao humana independente.
-ChatGPT foi utilizado; a retomada atual usa Codex. Nao ha experimento
-comparativo comprovado de outras IAs. A matriz pendente da Entrega 2 nao deve
+Nao ha experimento comparativo documentado na matriz da Entrega 2; ela nao deve
 ser interpretada como experimento realizado. Issues historicas ainda abertas
 nao sao PRs de integracao pendentes. Falha historica de Pages foi preservada
 no historico; o deploy posterior confirmou a correcao da configuracao.

@@ -147,8 +147,8 @@ body{font:10pt Arial,sans-serif;color:#251c2d;line-height:1.45;margin:0}header{b
 <h2>1. Resultado verificado</h2><p>Entrega presente em main, commit <b>$MainSha</b>. Suite executada com Node $NodeVersion e PowerShell $($PSVersionTable.PSVersion). Resultados desta execucao:</p><pre>$(Html $summary)</pre>
 <p>Release: v1.0.0-bootcamp3. Protecao main: $ProtectionStatus. GitHub Pages: $PagesStatus.</p>
 <h2>2. Escopo tecnico / especificacao existente</h2><pre>$(Html $spec)</pre>
-<h2>3. Autoria, IA e limites</h2><p class="note">Trabalho de Daniel Barros de Deus. ProcyonOps e conta tecnica do mesmo autor; aprovacoes dessa conta nao constituem revisao humana independente. ChatGPT foi usado em planejamento, depuracao, scripts e documentacao. Esta retomada foi executada com Codex. Nao ha resultados comprovados de outras ferramentas de IA. A matriz comparativa pendente nao representa testes realizados.</p>
-<p>Dados da aplicacao ficam no armazenamento local do navegador. Nao publicar tokens ou dados pessoais de despesas. Sugestoes de IA exigem verificacao; testes automatizados nao substituem homologacao humana de usabilidade, seguranca ou propriedade intelectual.</p>
+<h2>3. Responsabilidade e limites</h2><p class="note">Trabalho de Daniel Barros de Deus. ProcyonOps e conta tecnica do mesmo autor; aprovacoes dessa conta nao constituem revisao humana independente. A matriz comparativa pendente nao representa testes realizados.</p>
+<p>Dados da aplicacao ficam no armazenamento local do navegador. Nao publicar tokens ou dados pessoais de despesas. Testes automatizados nao substituem homologacao humana de usabilidade, seguranca ou propriedade intelectual.</p>
 <h2>4. Reproducao e demonstracao</h2><pre>cd $Folder
 node --test
 node --test --experimental-test-coverage</pre><p>Usar Node 22. Consultar README, documentacao e roteiro de demonstracao da entrega. Artefatos JSON e logs completos acompanham este PDF.</p>
@@ -241,8 +241,12 @@ try {
     "Node: $NodeVersion`nPowerShell: $($PSVersionTable.PSVersion)`nMain: $MainSha`nGit: $(& git --version)" | Set-Content (Join-Path $OutputDir 'AMBIENTE.txt') -Encoding UTF8
     $audit = [ordered]@{date=(Get-Date -Format o);main=$MainSha;node=$NodeVersion;tests=$testResults;actions=$ciStatus;pendingIntegrationPRs=$openPRs.Count;release='v1.0.0-bootcamp3';protection=$ProtectionStatus;pages=$PagesStatus;independentHumanReview=$false;otherAIToolsTested=$false}
     SaveJson $audit 'FINAL-AUDIT.json'
-    Get-ChildItem $OutputDir -File | Where-Object { $_.Extension -in '.pdf','.html','.json','.txt' } | Get-FileHash -Algorithm SHA256 | Select-Object @{Name='file';Expression={Split-Path $_.Path -Leaf}},Hash | ConvertTo-Json | Set-Content (Join-Path $OutputDir 'SHA256SUMS.json') -Encoding UTF8
     if ($testResults -contains $false -or $ciStatus -eq 'FAIL' -or $openPRs.Count) { throw 'Auditoria encontrou falha obrigatoria; consultar FINAL-AUDIT.json.' }
-    Info 'Finalizacao concluida. PDFs e evidencias em artifacts/submission.'
+    & python (Join-Path $PSScriptRoot 'verify-pdfs.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Validacao de PDF falhou.' }
+    & python (Join-Path $PSScriptRoot 'audit-submission-text.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Auditoria de texto encontrou mencoes a revisar.' }
+    Get-ChildItem $OutputDir -File | Where-Object { $_.Extension -in '.pdf','.html','.json','.txt' -and $_.Name -notin @('SHA256SUMS.json','SUPER-SCRIPT-LOG.txt') } | Get-FileHash -Algorithm SHA256 | Select-Object @{Name='file';Expression={Split-Path $_.Path -Leaf}},Hash | ConvertTo-Json | Set-Content (Join-Path $OutputDir 'SHA256SUMS.json') -Encoding UTF8
+    Info 'Finalizacao concluida. PDFs, auditoria de texto e evidencias em artifacts/submission.'
 } finally { Pop-Location }
 

@@ -33,3 +33,11 @@ Saidas locais ignoradas pelo Git: `artifacts/submission`. Incluem tres PDFs
 Letter, HTMLs, testes com cobertura, snapshots GitHub, auditoria e hashes.
 Cada reexecucao substitui esses relatorios. Preservar UTF-8 com BOM nos `.ps1`
 para que o PowerShell 5.1 interprete corretamente caracteres nao ASCII.
+
+Verificacao de PDFs e texto: Python com PyMuPDF, instalado localmente em
+`artifacts/python-tools` (`python -m pip install --target artifacts/python-tools pymupdf`).
+A execucao final verifica texto extraido, Letter, paginacao e metadados dos PDFs,
+e varre textos atuais do projeto e artefatos. Historico `.git`, bibliotecas
+instaladas e perfis de navegador sao excluidos; conteudo binario nao e tratado
+como texto. Referencias conceituais da disciplina sao distintas de afirmacoes
+sobre a producao destes materiais. A auditoria nao declara autoria sem auxilio.
