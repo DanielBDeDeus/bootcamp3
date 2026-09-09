@@ -12,8 +12,8 @@ A quantidade de participantes precisava de pre-condicao explicita. O caso de bor
 ## Trade-off principal
 LocalStorage reduz infraestrutura e facilita a demonstracao, mas nao fornece sincronizacao entre dispositivos nem controle multiusuario.
 
-## Uso de IA
-Ferramentas de IA sao apoio, nao criterio de aceite. Testes e revisao humana continuam obrigatorios.
+## Criterios de aceite
+Testes executaveis e revisao humana continuam obrigatorios.
 
 ## Limitacao de colaboracao
 ProcyonOps e conta secundaria controlada pelo mesmo autor. Ela testa o fluxo tecnico, mas nao substitui revisao independente por outra pessoa.

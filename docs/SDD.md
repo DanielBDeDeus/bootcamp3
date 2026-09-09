@@ -29,3 +29,8 @@ ausente, erro de permissao, rede e criacao recusada.
 AUT-06: a descricao e os READMEs devem preservar portugues em UTF-8 sem
 mojibake. A regressao `tools/tests/text.test.mjs` verifica os tres documentos
 onde a corrupcao foi observada; `.ps1` usa BOM para PowerShell 5.1.
+
+AUT-07: revisar textos atuais e PDFs quanto a mencoes de assistencia na producao,
+preservando discussoes conceituais da disciplina. Registrar a abrangencia da
+varredura em TEXT-AUDIT.json; nao reescrever historico publicado nem formular
+declaracoes de autoria sem auxilio. Validar texto extraido e paginacao dos PDFs.

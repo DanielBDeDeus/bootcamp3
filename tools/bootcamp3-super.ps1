@@ -142,19 +142,19 @@ function New-SubmissionReport([int]$Number, [string]$Folder, [string]$TestLog) {
 <style>
 @page { size: Letter; margin: 17mm 16mm 19mm; @bottom-center { content: 'CEUB | Bootcamp III - Daniel Barros de Deus | Pagina ' counter(page) ' de ' counter(pages); font: 8pt Arial; color: #54246f; } }
 body{font:10pt Arial,sans-serif;color:#251c2d;line-height:1.45;margin:0}header{border-top:8px solid #552377;border-bottom:3px solid #b82685;padding:12px 0}header small{color:#ae227c;letter-spacing:2px}h1{font-size:23pt;color:#512071;margin:8px 0}h2{font-size:14pt;color:#652780;border-bottom:1px solid #e2d5ed;margin-top:22px;break-after:avoid}table{width:100%;border-collapse:collapse;font-size:8.5pt;margin:14px 0}td,th{border:1px solid #ddd1e6;padding:6px;text-align:left}th,.metadata{background:#f0e8f7}tr{break-inside:avoid}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f6f3f8;border-left:3px solid #ac3288;padding:12px;font:8pt Consolas,monospace}.pagebreak{break-before:page}a{color:#652780}.note{background:#f4eef8;padding:12px}
-</style></head><body><header><small>CEUB / ESPACO ALUNO</small><h1>Bootcamp III Â· Entrega $Number</h1><p>Relatorio academico de submissao e evidencias tecnicas</p></header>
+</style></head><body><header><small>CEUB / ESPACO ALUNO</small><h1>Bootcamp III &middot; Entrega $Number</h1><p>Relatorio academico de submissao e evidencias tecnicas</p></header>
 <table class="metadata"><tr><th>Disciplina</th><td>Bootcamp III</td><th>Atividade</th><td>Entrega $Number</td></tr><tr><th>Aluno</th><td>Daniel Barros de Deus</td><th>RA</th><td>22600468</td></tr><tr><th>Data</th><td>$(Get-Date -Format 'dd/MM/yyyy')</td><th>Repositorio</th><td>github.com/$RepoSlug</td></tr></table>
 <h2>1. Resultado verificado</h2><p>Entrega presente em main, commit <b>$MainSha</b>. Suite executada com Node $NodeVersion e PowerShell $($PSVersionTable.PSVersion). Resultados desta execucao:</p><pre>$(Html $summary)</pre>
 <p>Release: v1.0.0-bootcamp3. Protecao main: $ProtectionStatus. GitHub Pages: $PagesStatus.</p>
 <h2>2. Escopo tecnico / especificacao existente</h2><pre>$(Html $spec)</pre>
-<h2>3. Autoria, IA e limites</h2><p class="note">Trabalho de Daniel Barros de Deus. ProcyonOps e conta tecnica do mesmo autor; aprovacoes dessa conta nao constituem revisao humana independente. ChatGPT foi usado em planejamento, depuracao, scripts e documentacao. Esta retomada foi executada com Codex. Nao ha resultados comprovados de outras ferramentas de IA. A matriz comparativa pendente nao representa testes realizados.</p>
-<p>Dados da aplicacao ficam no armazenamento local do navegador. Nao publicar tokens ou dados pessoais de despesas. Sugestoes de IA exigem verificacao; testes automatizados nao substituem homologacao humana de usabilidade, seguranca ou propriedade intelectual.</p>
+<h2>3. Responsabilidade e limites</h2><p class="note">Trabalho de Daniel Barros de Deus. ProcyonOps e conta tecnica do mesmo autor; aprovacoes dessa conta nao constituem revisao humana independente. A matriz comparativa pendente nao representa testes realizados.</p>
+<p>Dados da aplicacao ficam no armazenamento local do navegador. Nao publicar tokens ou dados pessoais de despesas. Testes automatizados nao substituem homologacao humana de usabilidade, seguranca ou propriedade intelectual.</p>
 <h2>4. Reproducao e demonstracao</h2><pre>cd $Folder
 node --test
 node --test --experimental-test-coverage</pre><p>Usar Node 22. Consultar README, documentacao e roteiro de demonstracao da entrega. Artefatos JSON e logs completos acompanham este PDF.</p>
-<div class="pagebreak"></div><h2>5. Governanca â€” Pull Requests</h2><table><thead><tr><th>PR</th><th>Descricao</th><th>Estado</th></tr></thead><tbody>$prRows</tbody></table>
-<h2>6. Issues â€” estado real</h2><table><thead><tr><th>Issue</th><th>Descricao</th><th>Estado</th></tr></thead><tbody>$issueRows</tbody></table>
-<h2>7. GitHub Actions â€” execucoes recentes</h2><table><thead><tr><th>Run</th><th>Workflow</th><th>Conclusao</th></tr></thead><tbody>$runRows</tbody></table><p>Falhas historicas permanecem registradas. Consultar GITHUB-ACTIONS.json para URLs e estados completos.</p>
+<div class="pagebreak"></div><h2>5. Governanca &mdash; Pull Requests</h2><table><thead><tr><th>PR</th><th>Descricao</th><th>Estado</th></tr></thead><tbody>$prRows</tbody></table>
+<h2>6. Issues &mdash; estado real</h2><table><thead><tr><th>Issue</th><th>Descricao</th><th>Estado</th></tr></thead><tbody>$issueRows</tbody></table>
+<h2>7. GitHub Actions &mdash; execucoes recentes</h2><table><thead><tr><th>Run</th><th>Workflow</th><th>Conclusao</th></tr></thead><tbody>$runRows</tbody></table><p>Falhas historicas permanecem registradas. Consultar GITHUB-ACTIONS.json para URLs e estados completos.</p>
 <h2>8. Fontes e limitacoes</h2><p><a href="https://github.com/$RepoSlug/tree/main/$Folder">Repositorio / $Folder</a><br><a href="https://github.com/$RepoSlug/releases/tag/v1.0.0-bootcamp3">Release oficial</a></p><p>Configuracao de Pages e protecao: PAGES-CONFIG.json e MAIN-PROTECTION.json. Cobertura mede exercicio do codigo, nao ausencia de defeitos. Eventuais requisitos de revisao por outra pessoa ou comparacao experimental de varias IAs permanecem dependentes de evidencia real.</p></body></html>
 "@
     $report | Set-Content "$path.html" -Encoding UTF8
@@ -241,8 +241,12 @@ try {
     "Node: $NodeVersion`nPowerShell: $($PSVersionTable.PSVersion)`nMain: $MainSha`nGit: $(& git --version)" | Set-Content (Join-Path $OutputDir 'AMBIENTE.txt') -Encoding UTF8
     $audit = [ordered]@{date=(Get-Date -Format o);main=$MainSha;node=$NodeVersion;tests=$testResults;actions=$ciStatus;pendingIntegrationPRs=$openPRs.Count;release='v1.0.0-bootcamp3';protection=$ProtectionStatus;pages=$PagesStatus;independentHumanReview=$false;otherAIToolsTested=$false}
     SaveJson $audit 'FINAL-AUDIT.json'
-    Get-ChildItem $OutputDir -File | Where-Object { $_.Extension -in '.pdf','.html','.json','.txt' } | Get-FileHash -Algorithm SHA256 | Select-Object @{Name='file';Expression={Split-Path $_.Path -Leaf}},Hash | ConvertTo-Json | Set-Content (Join-Path $OutputDir 'SHA256SUMS.json') -Encoding UTF8
     if ($testResults -contains $false -or $ciStatus -eq 'FAIL' -or $openPRs.Count) { throw 'Auditoria encontrou falha obrigatoria; consultar FINAL-AUDIT.json.' }
-    Info 'Finalizacao concluida. PDFs e evidencias em artifacts/submission.'
+    & python (Join-Path $PSScriptRoot 'verify-pdfs.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Validacao de PDF falhou.' }
+    & python (Join-Path $PSScriptRoot 'audit-submission-text.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Auditoria de texto encontrou mencoes a revisar.' }
+    Get-ChildItem $OutputDir -File | Where-Object { $_.Extension -in '.pdf','.html','.json','.txt' -and $_.Name -notin @('SHA256SUMS.json','SUPER-SCRIPT-LOG.txt') } | Get-FileHash -Algorithm SHA256 | Select-Object @{Name='file';Expression={Split-Path $_.Path -Leaf}},Hash | ConvertTo-Json | Set-Content (Join-Path $OutputDir 'SHA256SUMS.json') -Encoding UTF8
+    Info 'Finalizacao concluida. PDFs, auditoria de texto e evidencias em artifacts/submission.'
 } finally { Pop-Location }
 
