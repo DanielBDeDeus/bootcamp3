@@ -1,30 +1,30 @@
-# Erros lÃ³gicos e loop de re-especificaÃ§Ã£o
+# Erros lógicos e loop de re-especificação
 
-## Caso de borda: quantidade invÃ¡lida de participantes
+## Caso de borda: quantidade inválida de participantes
 
-### EspecificaÃ§Ã£o inicial
+### Especificação inicial
 
-A funÃ§Ã£o de rateio recebia um valor e uma quantidade de participantes.
+A função de rateio recebia um valor e uma quantidade de participantes.
 
 ### Falha identificada
 
-O caso `participantCount = 0` nÃ£o possuÃ­a comportamento explicitamente definido.
+O caso `participantCount = 0` não possuía comportamento explicitamente definido.
 
 ### Teste automatizado
 
-Foi criado primeiro um teste exigindo erro explÃ­cito para quantidade zero ou fracionÃ¡ria de participantes.
+Foi criado primeiro um teste exigindo erro explícito para quantidade zero ou fracionária de participantes.
 
-### Re-especificaÃ§Ã£o
+### Re-especificação
 
 A regra passou a exigir:
 
-> A quantidade de participantes deve ser um nÃºmero inteiro maior que zero.
+> A quantidade de participantes deve ser um número inteiro maior que zero.
 
-### CorreÃ§Ã£o
+### Correção
 
-A funÃ§Ã£o `splitExpense` passou a validar a prÃ©-condiÃ§Ã£o e lanÃ§ar `RangeError` quando ela nÃ£o Ã© satisfeita.
+A função `splitExpense` passou a validar a pré-condição e lançar `RangeError` quando ela não é satisfeita.
 
-### EvidÃªncia no GitHub
+### Evidência no GitHub
 
 A branch `entrega2/validacao-borda` registra:
 
@@ -32,8 +32,9 @@ A branch `entrega2/validacao-borda` registra:
 2. primeiro push com CI vermelho;
 3. commit posterior corrigindo a regra;
 4. segundo push com CI verde;
-5. Pull Request para revisÃ£o por outro integrante.
+5. Pull Request para revisão técnica. ProcyonOps é uma conta do mesmo autor;
+   esse registro não comprova revisão independente por outra pessoa.
 
 Isso demonstra o ciclo:
 
-**teste -> falha -> re-especificaÃ§Ã£o -> correÃ§Ã£o -> novo teste**
+**teste -> falha -> re-especificação -> correção -> novo teste**
