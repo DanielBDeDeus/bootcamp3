@@ -1,0 +1,63 @@
+﻿name: Bootcamp III - CI Completo
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - "feature/**"
+      - "fix/**"
+      - "docs/**"
+      - "entrega2/**"
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Entrega 1
+        shell: bash
+        run: |
+          if [ -f entrega-1-inicial/package.json ]; then
+            cd entrega-1-inicial
+            node --test
+            cd ..
+          fi
+
+      - name: Entrega 2
+        shell: bash
+        run: |
+          if [ -f entrega-2-intermediaria/package.json ]; then
+            cd entrega-2-intermediaria
+            node --test
+            cd ..
+          fi
+
+      - name: Entrega 3
+        shell: bash
+        run: |
+          if [ -f entrega-3-final/package.json ]; then
+            cd entrega-3-final
+            node --test
+            cd ..
+          fi
+
+      - name: Verificacao de sintaxe
+        shell: bash
+        run: |
+          find . -name '*.mjs' -not -path './.git/*' -print0 |
+          while IFS= read -r -d '' file; do
+            node --check "$file"
+          done

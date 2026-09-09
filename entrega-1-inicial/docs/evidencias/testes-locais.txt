@@ -2,61 +2,61 @@
 # Subtest: RF-01: aceita virgula decimal
 ok 1 - RF-01: aceita virgula decimal
   ---
-  duration_ms: 1.3004
+  duration_ms: 1.2379
   type: 'test'
   ...
 # Subtest: RF-01: rejeita zero
 ok 2 - RF-01: rejeita zero
   ---
-  duration_ms: 1.2402
+  duration_ms: 1.2181
   type: 'test'
   ...
 # Subtest: RF-02: divide valor exato
 ok 3 - RF-02: divide valor exato
   ---
-  duration_ms: 0.9983
+  duration_ms: 0.9456
   type: 'test'
   ...
 # Subtest: RF-02: preserva todos os centavos
 ok 4 - RF-02: preserva todos os centavos
   ---
-  duration_ms: 0.1714
+  duration_ms: 0.1928
   type: 'test'
   ...
 # Subtest: RF-03: rejeita zero participantes
 ok 5 - RF-03: rejeita zero participantes
   ---
-  duration_ms: 0.2892
+  duration_ms: 0.2813
   type: 'test'
   ...
 # Subtest: RF-03: rejeita quantidade fracionaria
 ok 6 - RF-03: rejeita quantidade fracionaria
   ---
-  duration_ms: 0.1514
+  duration_ms: 0.1649
   type: 'test'
   ...
 # Subtest: RF-04: saldo final soma zero
 ok 7 - RF-04: saldo final soma zero
   ---
-  duration_ms: 0.4577
+  duration_ms: 0.4337
   type: 'test'
   ...
 # Subtest: RF-05: rejeita pagador inexistente
 ok 8 - RF-05: rejeita pagador inexistente
   ---
-  duration_ms: 0.2292
+  duration_ms: 0.2157
   type: 'test'
   ...
 # Subtest: RF-06: rejeita nome vazio
 ok 9 - RF-06: rejeita nome vazio
   ---
-  duration_ms: 0.427
+  duration_ms: 0.4037
   type: 'test'
   ...
 # Subtest: RF-06: rejeita duplicado
 ok 10 - RF-06: rejeita duplicado
   ---
-  duration_ms: 0.4495
+  duration_ms: 0.5076
   type: 'test'
   ...
 1..10
@@ -67,5 +67,5 @@ ok 10 - RF-06: rejeita duplicado
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 142.0595
+# duration_ms 142.3509
 
