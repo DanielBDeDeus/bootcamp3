@@ -1,9 +1,6 @@
-﻿# Avaliacao de IA - Consolidacao
+# Criterios de avaliacao tecnica
 
-Uso confirmado:
-- ChatGPT: apoio na analise da atividade, estruturacao do repositorio e automacao.
-
-Critios para qualquer ferramenta adicional:
+Criterios para avaliar uma proposta de mudanca:
 - identifica corretamente o problema;
 - produz teste executavel;
 - corrige sem regressao;

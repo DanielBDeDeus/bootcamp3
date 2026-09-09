@@ -1,10 +1,8 @@
-﻿# Uso de ferramenta de IA
+# Contexto e criterios de desenvolvimento
 
-Esta atividade exige documentacao de uso de ferramenta de geracao/auxilio de codigo.
+Os arquivos AGENTS.md e .github/copilot-instructions.md registram contexto e
+regras de trabalho: consultar a especificacao, escrever o teste, implementar
+a menor mudanca, executar a suite e registrar refinamentos.
 
-Uso confirmado nesta preparacao:
-- ChatGPT foi utilizado como ferramenta de apoio para estruturar o fluxo, a documentacao e o script de automacao.
-
-Os arquivos AGENTS.md e .github/copilot-instructions.md registram contexto e regras para agentes.
-
-Qualquer outra ferramenta (Codex CLI, Claude Code, Cursor, Antigravity etc.) so deve ser registrada neste documento depois de ser realmente executada.
+Os criterios de aceite sao contratos verificaveis, testes executaveis e
+evidencias correspondentes ao estado real do repositorio.
