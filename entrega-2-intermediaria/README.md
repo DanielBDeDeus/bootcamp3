@@ -1,21 +1,21 @@
 # DividimOS Lite - Bootcamp III
 
-AplicaÃ§Ã£o web simples para registrar despesas compartilhadas entre duas pessoas e calcular automaticamente o saldo de cada participante.
+Aplicação web simples para registrar despesas compartilhadas entre duas pessoas e calcular automaticamente o saldo de cada participante.
 
 ## Problema
 
-Em despesas compartilhadas, Ã© comum perder o controle de quem pagou cada conta e quanto cada pessoa deve ao final. O projeto registra despesas e calcula o acerto automaticamente.
+Em despesas compartilhadas, é comum perder o controle de quem pagou cada conta e quanto cada pessoa deve ao final. O projeto registra despesas e calcula o acerto automaticamente.
 
 ## Funcionalidades
 
 - Cadastro de dois participantes.
-- Registro de descriÃ§Ã£o, valor e pagador.
-- Rateio automÃ¡tico.
+- Registro de descrição, valor e pagador.
+- Rateio automático.
 - Saldo individual.
-- PersistÃªncia no navegador.
+- Persistência no navegador.
 - Testes automatizados.
 - CI com GitHub Actions.
-- ADRs e fluxo de governanÃ§a.
+- ADRs e fluxo de governança.
 
 ## Arquitetura
 
@@ -35,7 +35,7 @@ flowchart LR
 
 ## Executar localmente
 
-Se houver Python disponÃ­vel:
+Se houver Python disponível:
 
 ```bash
 python -m http.server 8000 -d web
@@ -45,7 +45,7 @@ Depois abra:
 
 `http://localhost:8000`
 
-TambÃ©m Ã© possÃ­vel abrir os arquivos com uma extensÃ£o/servidor local de sua preferÃªncia.
+Também é possível abrir os arquivos com uma extensão/servidor local de sua preferência.
 
 ## Testes
 
@@ -57,9 +57,9 @@ cd entrega-2-intermediaria
 npm test
 ```
 
-NÃ£o Ã© necessÃ¡rio instalar Node.js no computador da sala para que o GitHub Actions execute os testes.
+Não é necessário instalar Node.js no computador da sala para que o GitHub Actions execute os testes.
 
-## GovernanÃ§a
+## Governança
 
 Veja:
 
@@ -67,7 +67,7 @@ Veja:
 - `.github/PULL_REQUEST_TEMPLATE.md`
 - `.github/ISSUE_TEMPLATE/tarefa.md`
 
-## DecisÃµes arquiteturais
+## Decisões arquiteturais
 
 - `docs/adr/0001-frontend-estatico.md`
 - `docs/adr/0002-persistencia-local.md`
@@ -81,6 +81,6 @@ Veja:
 - `docs/CHECKLIST-ENTREGA.md`
 - `docs/RELATORIO-FINAL.md`
 
-## SeguranÃ§a
+## Segurança
 
-NÃ£o inserir segredos, tokens, senhas ou dados pessoais reais neste repositÃ³rio.
+Não inserir segredos, tokens, senhas ou dados pessoais reais neste repositório.

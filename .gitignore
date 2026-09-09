@@ -3,3 +3,6 @@ Thumbs.db
 *.log
 coverage/
 node_modules/
+artifacts/submission/edge-profile-*/
+artifacts/python-tools/
+artifacts/

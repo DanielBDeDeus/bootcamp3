@@ -1,0 +1,25 @@
+name: Automation - PowerShell 5.1
+on:
+  push:
+    branches: [main, develop, 'fix/**']
+  pull_request:
+    branches: [main, develop]
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate parser and release regression
+        shell: powershell
+        run: |
+          $tokens = $null; $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile((Join-Path $PWD 'tools/tests/release.tests.ps1'), [ref]$tokens, [ref]$errors) | Out-Null
+          if ($errors.Count) { throw ($errors | Out-String) }
+          & ./tools/tests/release.tests.ps1
+      - name: Verify documentation encoding
+        run: node --test tools/tests/text.test.mjs
