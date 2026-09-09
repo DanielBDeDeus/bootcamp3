@@ -1,0 +1,19 @@
+﻿Ô£ö splitExpense rejeita zero participantes (1.478ms)
+Ô£ö splitExpense rejeita quantidade fracion├íria (0.2026ms)
+Ô£ö makeExportPayload serializa participantes e despesas (3.2434ms)
+Ô£ö makeExportPayload rejeita estado invalido (0.8057ms)
+Ô£ö parseAmount aceita v├¡rgula decimal (1.1376ms)
+Ô£ö parseAmount rejeita zero (0.5328ms)
+Ô£ö parseAmount rejeita texto (0.1818ms)
+Ô£ö splitExpense divide valor exato (1.6615ms)
+Ô£ö splitExpense preserva os centavos (0.2732ms)
+Ô£ö calculateBalances mant├®m soma final igual a zero (0.3149ms)
+Ôä╣ tests 10
+Ôä╣ suites 0
+Ôä╣ pass 10
+Ôä╣ fail 0
+Ôä╣ cancelled 0
+Ôä╣ skipped 0
+Ôä╣ todo 0
+Ôä╣ duration_ms 152.754
+
