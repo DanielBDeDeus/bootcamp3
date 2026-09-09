@@ -1,0 +1,86 @@
+﻿TAP version 13
+# Subtest: auditoria adiciona timestamp e tipo
+ok 1 - auditoria adiciona timestamp e tipo
+  ---
+  duration_ms: 4.0785
+  type: 'test'
+  ...
+# Subtest: auditoria rejeita evento sem tipo
+ok 2 - auditoria rejeita evento sem tipo
+  ---
+  duration_ms: 0.6584
+  type: 'test'
+  ...
+# Subtest: exportacao inclui schema, participantes e despesas
+ok 3 - exportacao inclui schema, participantes e despesas
+  ---
+  duration_ms: 3.3333
+  type: 'test'
+  ...
+# Subtest: exportacao rejeita estado invalido
+ok 4 - exportacao rejeita estado invalido
+  ---
+  duration_ms: 0.704
+  type: 'test'
+  ...
+# Subtest: parseAmount aceita virgula
+ok 5 - parseAmount aceita virgula
+  ---
+  duration_ms: 2.4123
+  type: 'test'
+  ...
+# Subtest: splitExpense preserva centavos
+ok 6 - splitExpense preserva centavos
+  ---
+  duration_ms: 1.2695
+  type: 'test'
+  ...
+# Subtest: splitExpense rejeita zero
+ok 7 - splitExpense rejeita zero
+  ---
+  duration_ms: 0.5726
+  type: 'test'
+  ...
+# Subtest: calculateBalances calcula saldo correto
+ok 8 - calculateBalances calcula saldo correto
+  ---
+  duration_ms: 0.4685
+  type: 'test'
+  ...
+# Subtest: calculateBalances rejeita duplicados
+ok 9 - calculateBalances rejeita duplicados
+  ---
+  duration_ms: 0.3198
+  type: 'test'
+  ...
+# Subtest: buildSettlement gera transferencia
+ok 10 - buildSettlement gera transferencia
+  ---
+  duration_ms: 0.4243
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 198.0594
+# start of coverage report
+# ------------------------------------------------------------------
+# file              | line % | branch % | funcs % | uncovered lines
+# ------------------------------------------------------------------
+# tests             |        |          |         | 
+#  audit.test.mjs   | 100.00 |   100.00 |  100.00 | 
+#  export.test.mjs  | 100.00 |   100.00 |  100.00 | 
+#  finance.test.mjs | 100.00 |   100.00 |  100.00 | 
+# web               |        |          |         | 
+#  audit.mjs        |  94.44 |    66.67 |  100.00 | 3
+#  export.mjs       | 100.00 |   100.00 |  100.00 | 
+#  finance.mjs      |  94.95 |    80.77 |  100.00 | 6 28 34 42 50
+# ------------------------------------------------------------------
+# all files         |  97.21 |    87.04 |  100.00 | 
+# ------------------------------------------------------------------
+# end of coverage report
